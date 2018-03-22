@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block title %}
+    Profiles
+{% endblock %}
+{% block links %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='profiles.css') }}" type="text/css" />
+{% endblock %}
+
+{% block main %}
+
+<h1>Profiles</h1>
+{% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <div class="alert alert-success">
+                <ul class="flashes text-success">
+                    {% for message in messages %}
+                      <li>{{ message }}</li>
+                    {% endfor %}
+                    </ul>
+            </div>
+          {% endif %}
+        {% endwith %}
+
+{% if not profiles %}
+<p style="color: white">There are currently not profiles</p>
+
+{% else %}
+    {% for _id, photo, firstname, lastname, gender, location in profiles %}
+        <div class="profile-listing">
+            
+            <img src="{{ url_for('static', filename=photo) }}" class="avatar"></img>
+            <ul>
+                <li>
+                    <span class="user-name">{{firstname}} {{lastname}}</span>
+                </li>
+                <li>
+                    <i class="material-icons">person_outline</i>{{gender}}
+                </li>
+                <li>
+                    <i class="material-icons">location_on</i>{{location}}
+                </li>
+            </ul>
+            <a href="{{ url_for('profiles', userid=_id) }}"><button class="btn btn-success">View Profile</button></a>
+        </div>
+    {% endfor %}
+{% endif %}
+
+{% endblock %}

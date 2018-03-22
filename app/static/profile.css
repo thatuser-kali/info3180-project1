@@ -1,0 +1,44 @@
+label{
+    display: block;
+}
+.form{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+    background-color: white;
+    padding: 1em;
+    border: none;
+    border-radius: 5px;
+    border-top: 5px solid #007bff!important;
+    width: 40%;
+    margin-bottom: 2em;
+}
+input[type='text'], textarea, select{
+    width: 100%;
+    border: none;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+    height: 2em;
+    padding: none;
+}
+button{
+    border: none;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+    display: block;
+    background-color: white;
+    width: 6em;
+    padding: 0.3em;
+    margin-bottom: 1em;
+    cursor: pointer;
+}
+textarea{
+    height: 5em;
+}
+
+#output{
+    width: 100%;
+    max-height: 20em;
+    display: block;
+    margin-bottom: 1em;
+}
